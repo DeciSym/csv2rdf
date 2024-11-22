@@ -16,7 +16,7 @@ fn test_graph_writer() {
     );
     assert!(res.is_ok());
 
-    assert_eq!(g.len(), 23)
+    assert_eq!(g.len(), 27)
 }
 
 #[test]
@@ -38,5 +38,5 @@ fn test_file_writer() {
         .collect::<Result<Vec<_>, _>>()
         .expect("failed to parse generated output file");
 
-    assert_eq!(quads.len(), 23)
+    assert_eq!(quads.len(), 27)
 }
