@@ -1,34 +1,34 @@
-//! # XML2RDF Converter
+//! # CSV2RDF Converter
 //!
-//! This is a Rust-based tool that converts XML data into RDF format. It uses the `xml-rs` crate
-//! for XML parsing and the `oxrdf` crate to construct RDF triples and graphs.
+//! This is a Rust-based tool that converts CSV data into RDF format. It uses the `csv` crate
+//! for CSV parsing and the `oxrdf` crate to construct RDF triples and graphs.
 //!
 //! ## Features
-//! - Parses XML input and converts it to RDF triples
+//! - Parses CSV input and converts it to RDF triples
 //! - Supports specifying a custom namespace for generated RDF nodes
 //! - Outputs RDF data to a specified file, oxrdf::Graph or stdout
 //!
 //! ## Usage
-//! Run the XML2RDF converter from the command line. For detailed usage information, run:
+//! Run the CSV2RDF converter from the command line. For detailed usage information, run:
 //! ```
-//! xml2rdf --help
+//! csv2rdf --help
 //! ```
 //!
 //! ## Example
-//! To convert a XML file to RDF format with a specified namespace and output file:
+//! To convert a CSV file to RDF format with a specified namespace and output file:
 //! ```
-//! xml2rdf convert --namespace http://example.com/ns# --xml data.xml --output-file output.nt
+//! csv2rdf convert --namespace http://example.com/ns# --input data.xml --output output.nt
 //! ```
-//! This will take `data.xml`, apply the specified namespace, and save the RDF output in `output.nt`.
+//! This will take `data.csv`, apply the specified namespace, and save the RDF output in `output.nt`.
 
 use clap::{Parser, Subcommand};
 use csv2rdf::*;
 
-/// Command-line interface for XML2RDF Converter
+/// Command-line interface for CSV2RDF Converter
 ///
-/// This struct defines the command-line interface (CLI) for interacting with the XML2RDF converter.
+/// This struct defines the command-line interface (CLI) for interacting with the CSV2RDF converter.
 #[derive(Parser)]
-#[command(version, about = "Converts XML data into RDF format.")]
+#[command(version, about = "Converts CSV data into RDF format.")]
 struct Cli {
     /// CLI command selection
     #[command(subcommand)]
@@ -37,12 +37,12 @@ struct Cli {
 
 /// Supported Commands
 ///
-/// Contains the available commands for the XML2RDF converter.
+/// Contains the available commands for the CSV2RDF converter.
 #[derive(Subcommand)]
 enum Commands {
-    /// Convert XML to RDF format.
+    /// Convert CSV to RDF format.
     ///
-    /// The `convert` command parses a XML file, converts it to RDF triples using `xml-rs` for parsing
+    /// The `convert` command parses a CSV file, converts it to RDF triples using `csv` for parsing
     /// and `oxrdf` to construct the graph, and saves the output.
     Convert {
         /// Namespace for RDF graph generation.
@@ -51,9 +51,9 @@ enum Commands {
         #[arg(short, long, default_value = "https://decisym.ai/csv2rdf/data")]
         namespace: String,
 
-        /// Path to input XML file(s).
+        /// Path to input CSV file(s).
         ///
-        /// Provide the path to one or more XML files that will be parsed and converted.
+        /// Provide the path to one or more CSV files that will be parsed and converted.
         #[arg(short, long, num_args = 1..)]
         input: Vec<String>,
 
