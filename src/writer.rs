@@ -58,9 +58,9 @@ impl<'a> GraphWriter<'a> {
     }
 }
 
-impl<'a> RdfWriter for GraphWriter<'a> {
+impl RdfWriter for GraphWriter<'_> {
     fn add_triple(&mut self, triple: TripleRef) -> std::io::Result<()> {
-        self.graph.insert(triple.clone());
+        self.graph.insert(triple);
         Ok(())
     }
 }

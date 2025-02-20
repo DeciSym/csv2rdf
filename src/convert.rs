@@ -19,7 +19,7 @@ use csv::ReaderBuilder;
 use log::error;
 use oxrdf::{NamedNode, TermRef, TripleRef};
 
-const C2R: &'static str = "https://decisym.ai/csv2rdf/model#";
+const C2R: &str = "https://decisym.ai/csv2rdf/model#";
 
 /// Converts CSV data to RDF format.
 ///
@@ -58,9 +58,7 @@ pub fn parse_csv(
     };
 
     for file in files.into_iter() {
-        let mut rdr = ReaderBuilder::new()
-            .has_headers(true)
-            .from_path(file.to_string())?;
+        let mut rdr = ReaderBuilder::new().has_headers(true).from_path(&file)?;
 
         let mut headers: HashMap<i32, String> = HashMap::new();
         let mut column_index = 0;
@@ -86,7 +84,7 @@ pub fn parse_csv(
                     row_id = field.trim().replace(" ", "");
                 }
                 // do not append empty cells
-                else if field != "" {
+                else if !field.is_empty() {
                     let column_id = headers.get(&column_index).unwrap();
                     let subject = NamedNode::new(format!("{}{}", ns, row_id)).unwrap();
                     let predicate = NamedNode::new(format!("{}{}", C2R, column_id)).unwrap();
