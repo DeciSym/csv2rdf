@@ -1,4 +1,4 @@
-name: Building XML2RDF and testing
+name: Building CSV2RDF and testing
 
 on: 
   schedule:

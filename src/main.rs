@@ -1,3 +1,6 @@
+// Copyright (c) 2024-2025, Decisym, LLC
+// Licensed under the BSD 3-Clause License (see LICENSE file in the project root).
+
 //! # CSV2RDF Converter
 //!
 //! This is a Rust-based tool that converts CSV data into RDF format. It uses the `csv` crate
@@ -17,7 +20,7 @@
 //! ## Example
 //! To convert a CSV file to RDF format with a specified namespace and output file:
 //! ```
-//! csv2rdf convert --namespace http://example.com/ns# --input data.xml --output output.nt
+//! csv2rdf convert --namespace http://example.com/ns# --input data.csv --output output.nt
 //! ```
 //! This will take `data.csv`, apply the specified namespace, and save the RDF output in `output.nt`.
 
@@ -47,7 +50,7 @@ enum Commands {
     Convert {
         /// Namespace for RDF graph generation.
         ///
-        /// A custom namespace to prefix RDF resources created from XML keys and values.
+        /// A custom namespace to prefix RDF resources created from CSV columns and rows.
         #[arg(short, long, default_value = "https://decisym.ai/csv2rdf/data")]
         namespace: String,
 

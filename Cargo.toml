@@ -1,7 +1,14 @@
 [package]
 name = "csv2rdf"
 version = "0.1.0"
+authors = ["bharath181 <bharathselvaraj18@gmail.com>", "Greg Hanson <g.isaac.hanson@gmail.com>"]
 edition = "2021"
+license = "BSD-3-Clause"
+description = "Library for converting a CSV file to N-Triple RDF"
+repository = "https://github.com/DeciSym/csv2rdf"
+readme = "README.md"
+keywords = ["csv", "rdf", "n-triples", "semantic-web", "converter", "parser"]
+categories = ["command-line-utilities", "encoding", "parser-implementations", "science", "web-programming"]
 
 [dependencies]
 clap = { version = "4.5.30", features = ["derive","cargo"] }

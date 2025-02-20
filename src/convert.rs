@@ -1,7 +1,10 @@
+// Copyright (c) 2024-2025, Decisym, LLC
+// Licensed under the BSD 3-Clause License (see LICENSE file in the project root).
+
 //! # CSV2RDF Converter Library
 //!
 //! This library provides functionality for converting CSV data into RDF format.
-//! It uses `csv` for XML parsing and `oxrdf` to build and manage RDF graphs.
+//! It uses `csv` for CSV parsing and `oxrdf` to build and manage RDF graphs.
 //!
 //! ## Overview
 //! - Converts CSV data structures into RDF triples, generating a graph representation.

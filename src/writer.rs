@@ -1,10 +1,13 @@
-//! # XML2RDF Writer Library
+// Copyright (c) 2024-2025, Decisym, LLC
+// Licensed under the BSD 3-Clause License (see LICENSE file in the project root).
+
+//! # CSV2RDF Writer Library
 //!
-//! This library provides functionality for writing covnerted XML2RDF data.
+//! This library provides functionality for writing covnerted CSV2RDF data.
 //! It uses `oxrdf` to build and manage RDF graphs or output the data direct to a file.
 //!
 //! ## Overview
-//! - Adds XML RDF triples to a graph or file.
+//! - Adds CSV RDF triples to a graph or file.
 
 use oxrdf::{Graph, TripleRef};
 use std::fs::File;

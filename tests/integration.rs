@@ -1,3 +1,6 @@
+// Copyright (c) 2024-2025, Decisym, LLC
+// Licensed under the BSD 3-Clause License (see LICENSE file in the project root).
+
 use csv2rdf::*;
 use oxrdf::Graph;
 use oxrdfio::{RdfFormat, RdfParser};
@@ -12,7 +15,7 @@ fn test_graph_writer() {
     let res = convert::parse_csv(
         vec!["tests/resources/people.csv".to_string()],
         &mut w,
-        "https://decisym.ai/xml2rdf/data",
+        "https://decisym.ai/csv2rdf/data",
     );
     assert!(res.is_ok());
 
